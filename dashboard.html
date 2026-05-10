@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Dashboard SITTA</title>
+
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+<div class="navbar">
+
+    <a href="dashboard.html">Dashboard</a>
+
+    <a href="tracking.html">Tracking Pengiriman</a>
+
+    <a href="stok.html">Informasi Stok</a>
+
+    <a href="#" onclick="logout()">Logout</a>
+
+    <button onclick="darkMode()" class="dark-btn">
+        Dark Mode
+    </button>
+
+</div>
+
+<div class="container">
+
+    <h1 id="greeting"></h1>
+
+    <div class="card">
+
+        <h2>Dashboard Aplikasi SITTA</h2>
+
+        <p>
+            Selamat datang di aplikasi Sistem Informasi Tiras dan
+            Transaksi Bahan Ajar Universitas Terbuka.
+        </p>
+
+        <button onclick="bukaModal()">
+            Tentang Aplikasi
+        </button>
+
+    </div>
+
+</div>
+
+<div id="modal" class="modal">
+
+    <div class="modal-content">
+
+        <span class="close"
+        onclick="tutupModal()">
+        &times;
+        </span>
+
+        <h2>Aplikasi SITTA</h2>
+
+        <p>
+        Sistem Informasi Tiras dan Transaksi
+        Bahan Ajar Universitas Terbuka.
+        </p>
+
+    </div>
+
+</div>
+
+<script src="js/script.js"></script>
+
+<script>
+
+const nama = localStorage.getItem("nama");
+
+const jam = new Date().getHours();
+
+let salam = "";
+
+if(jam >= 5 && jam < 12){
+
+    salam = "Selamat Pagi";
+
+}else if(jam >= 12 && jam < 15){
+
+    salam = "Selamat Siang";
+
+}else if(jam >= 15 && jam < 18){
+
+    salam = "Selamat Sore";
+
+}else{
+
+    salam = "Selamat Malam";
+
+}
+
+document.getElementById("greeting").innerHTML =
+salam + ", " + nama;
+
+</script>
+
+</body>
+</html>

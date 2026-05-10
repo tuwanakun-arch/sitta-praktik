@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Tracking Pengiriman</title>
+
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+<div class="navbar">
+
+    <a href="dashboard.html">Dashboard</a>
+
+    <a href="tracking.html">Tracking Pengiriman</a>
+
+    <a href="stok.html">Informasi Stok</a>
+
+</div>
+
+<div class="container">
+
+    <h2>Tracking Pengiriman</h2>
+
+    <input type="text"
+    id="nomor"
+    placeholder="Masukkan Nomor Delivery Order">
+
+    <button onclick="cekTracking()">Cari</button>
+
+    <div id="hasil"></div>
+
+</div>
+
+<script src="js/data.js"></script>
+
+<script>
+
+function cekTracking(){
+
+    const nomor =
+    document.getElementById("nomor").value;
+
+    const hasil =
+    document.getElementById("hasil");
+
+    if(dataTracking[nomor]){
+
+        const data = dataTracking[nomor];
+
+        hasil.innerHTML = `
+
+        <div class="card">
+
+            <h3>${data.nama}</h3>
+
+            <p>Status: ${data.status}</p>
+
+            <p>Ekspedisi: ${data.ekspedisi}</p>
+
+            <p>Tanggal Kirim: ${data.tanggalKirim}</p>
+
+            <p>Total Pembayaran: ${data.total}</p>
+
+        </div>
+        `;
+
+    }else{
+
+        alert("Nomor tidak ditemukan!");
+    }
+
+}
+
+</script>
+
+</body>
+</html>

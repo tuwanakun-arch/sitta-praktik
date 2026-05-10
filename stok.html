@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Informasi Stok</title>
+
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+<div class="navbar">
+
+    <a href="dashboard.html">Dashboard</a>
+
+    <a href="tracking.html">Tracking Pengiriman</a>
+
+    <a href="stok.html">Informasi Stok</a>
+
+</div>
+
+<div class="container">
+
+    <h2>Informasi Stok Bahan Ajar</h2>
+
+    <table class="table">
+
+        <thead>
+
+            <tr>
+
+                <th>Cover</th>
+                <th>Kode Barang</th>
+                <th>Nama Barang</th>
+                <th>Jenis</th>
+                <th>Stok</th>
+
+            </tr>
+
+        </thead>
+
+        <tbody id="tableData">
+
+        </tbody>
+
+    </table>
+
+</div>
+
+<script src="js/data.js"></script>
+
+<script>
+
+const table =
+document.getElementById("tableData");
+
+dataBahanAjar.forEach(function(item){
+
+table.innerHTML += `
+
+<tr>
+
+<td>
+<img src="${item.cover}" class="cover-img">
+</td>
+
+<td>${item.kodeBarang}</td>
+
+<td>${item.namaBarang}</td>
+
+<td>${item.jenisBarang}</td>
+
+<td>${item.stok}</td>
+
+</tr>
+
+`;
+
+});
+
+</script>
+
+</body>
+</html>
